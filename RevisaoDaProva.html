@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão da Prova</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <main>
+        <div id="Laranja"></div>
+        <div id="Verde"></div>
+        
+        <button id="botaoSorteio">
+            Sortear cor
+        </button>
+        
+    
+    </main>
+
+    <script>   
+    
+    const botaoSorteio = document.getElementById("botaoSorteio");
+    botaoSorteio.addEventListener("click", function() {
+        let corSorteada= null;
+        let Laranja= document.getElementById("Laranja");
+        Laranja.style.background= "orange";
+        let Verde= document.getElementById("Verde");
+        Verde.style.background= "green";
+        const cores = ["Laranja", "Verde"];
+        const indiceAleatorio = Math.floor(Math.random() * cores.length);
+        corSorteada = document.getElementById(cores[indiceAleatorio]);
+        corSorteada.style.background = "gray";
+        
+        
+
+        console.log(corSorteada);
+    });
+    
+    </script>
+</body>
+</html>
