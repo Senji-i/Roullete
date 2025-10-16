@@ -1,24 +1,124 @@
-#Laranja{
-
-width: 400px;
-height: 200px;
-background-color: orange;
-border-radius: 200px 200px 0px 0px;
-
-
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-#Verde{
-
- width: 400px;
-height: 200px;
-background-color: green;
-border-radius: 0px 0px 200px 200px;
-
-
+main {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
 }
 
-#button{
+.roleta-container {
+    position: relative;
+    margin: 30px auto;
+    width: 200px;
+    height: 200px;
+    border: 3px solid #333;
+    border-radius: 20px;
+    background: #f8f9fa;
+}
 
-    margin: auto;
+.item-roleta {
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#Laranja {
+    background: orange;
+    top: 10px;
+    left: 50%;
+    border-radius: 50% 50% 0 0;
+    transform: translateX(-50%);
+}
+
+#Verde {
+    background: green;
+    bottom: 10px;
+    left: 50%;
+    border-radius: 0 0 50% 50%;
+    transform: translateX(-50%);
+}
+
+.ponteiro {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(45deg, #dc3545, #ff6b7a);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: all 0.5s ease;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.ponteiro::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.ponteiro.girar {
+    animation: girarPonteiro 0.5s ease-in-out;
+}
+
+@keyframes girarPonteiro {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    50% { transform: translate(-50%, -50%) rotate(180deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+#botaoSorteio {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+#botaoSorteio:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.item-selecionado {
+    transform: translateX(-50%) scale(1.15);
+    box-shadow: 0 0 25px rgba(255,255,255,0.9);
+    z-index: 5;
+    border: 3px solid gold;
 }
